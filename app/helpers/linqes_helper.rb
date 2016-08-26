@@ -1,0 +1,2 @@
+module LinqesHelper
+end

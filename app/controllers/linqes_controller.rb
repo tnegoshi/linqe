@@ -1,0 +1,2 @@
+class LinqesController < ApplicationController
+end
