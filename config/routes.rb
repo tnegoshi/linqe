@@ -1,7 +1,29 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :linqes
-  resources :users
+  
+
+  get '/login', to: "sessions#new", as: 'login'
+  post '/sessions' to: "sessions#create", as: 'sessions'
+  delete '/sessions' to: "sessions#destroy", as: 'logout'
+  get '/signup' to: 'registrations#new', as: 'signup'
+  post '/registrations' to: 'registrations#create', as: 'registrations'
+
+
+  # possibly to be used later for admin privileges
+  # get 'users/new', to: 'users#new'
+
+  get 'users/edit', to: 'users#edit'
+
+  get 'users/show', to: 'users#show'
+
+
+
+  resources :linqes, except: [:index]
+
+  root to: 'linqes#index'
+
+
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
