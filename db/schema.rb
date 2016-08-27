@@ -14,21 +14,20 @@
 ActiveRecord::Schema.define(version: 20160826200143) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "user_id"
+    t.string   "content"
+    t.integer  "commenter_id"
     t.integer  "linqe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
-
-  add_index "comments", ["linqe_id"], name: "index_comments_on_linqe_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "linqes", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
     t.string   "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "submitter_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

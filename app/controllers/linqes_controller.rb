@@ -7,10 +7,11 @@ class LinqesController < ApplicationController
   end
 
   def show
-    
+    @linqe = Linqe.find(params[:id])
   end
 
   def edit
+  
   end
 
   def index
@@ -18,7 +19,7 @@ class LinqesController < ApplicationController
   end
 
   # def create
-    
+
   # end
 
   def destroy

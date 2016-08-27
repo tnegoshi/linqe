@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   
 
   get '/login', to: "sessions#new", as: 'login'
-  post '/sessions' to: "sessions#create", as: 'sessions'
-  delete '/sessions' to: "sessions#destroy", as: 'logout'
-  get '/signup' to: 'registrations#new', as: 'signup'
-  post '/registrations' to: 'registrations#create', as: 'registrations'
+  post '/sessions', to: "sessions#create", as: 'sessions'
+  delete '/sessions', to: "sessions#destroy", as: 'logout'
+  get '/signup', to: 'registrations#new', as: 'signup'
+  post '/registrations', to: 'registrations#create', as: 'registrations'
 
 
   # possibly to be used later for admin privileges

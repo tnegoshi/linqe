@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+
+Your Username: <%= @user.username %>
+<br><br>
+Your Email: <%= @user.email %>
+<br><br>
+Your Name: <%= "#{@user.first_name} #{@user.last_name}" %>
+<br><br>
+Your Submitted Linqes: <% @user.linqes.each do |lq| %>
+<br>
+<%= lq.title %>
+<% end %>
+<br><br>
+Your Comments: <% @user.linqes.each do |lq|  %>
+<br>
+<% lq.each_with_index do |cm, i| %>
+<br>
+<%= "#{i+1} #{cm.content}"%>
+<% end %>
+<br><br>
+<% end %>
