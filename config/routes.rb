@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  # get 'users/new', to: 'users#new' -- admin flow maybe
+
+  get 'users/show'
+
+  get 'users/edit'
+
+  get 'register', to: 'registrations#new', as: 'register'
+
+  post 'users', to: 'registrations#create'
+
+
+
   resources :comments
-  resources :linqes
-  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

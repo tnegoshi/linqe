@@ -42,11 +42,10 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "simplecov"
   gem "database_cleaner"
-  gem "sqlite3"
   gem "pry-rails"
   gem "rack_session_access"
   gem "rails-erd"
-  end
+end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
