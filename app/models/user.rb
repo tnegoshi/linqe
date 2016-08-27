@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :comments
-  has_many :linqes, through: :comments
+  has_many :linqes
+  has_many :comments, through: :links
   has_secure_password
 
 
