@@ -1,4 +1,5 @@
 class Linqe < ActiveRecord::Base
+  belongs_to :submitter, :class_name => "User"
   has_many :comments
-  belongs_to :user
+  has_many :commenters, through: :comments
 end

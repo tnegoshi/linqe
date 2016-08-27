@@ -1,6 +1,6 @@
 <h1>Register</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, url: register_path, controller: 'registrations', action: 'create' do |f| %>
 
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
@@ -17,8 +17,6 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
   <br>
-<!--   <%= f.label "ADMIN" %>
-  <%= f.check_box :admin %> -->
 
   <%= f.submit "Register" %>
 <% end %>

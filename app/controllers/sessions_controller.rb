@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
- def new
 
+ def new
+  @user = User.new
  end
 
  def signin
@@ -19,8 +20,8 @@ class SessionsController < ApplicationController
  end
 
  def destroy
-   reset_session
-   redirect_to root_path
+   session[:user_id] = nil
+   redirect_to '/'
  end
 
  private
