@@ -1,2 +1,15 @@
-<h1>Link Show Page</h1>
-<%= link_to @linqe.title, url: @linqe.url %>
+<% unless @linqe.errors.messages.empty? %>
+  <ul>
+    <% @linqe.errors.messages.each do |message| %>
+     <li><%= message %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<h2><%= link_to @linqe.title, @linqe.url, target: "_blank" %></h2>
+
+<br>
+<textarea rows="15" cols="60">
+  <%= @linqe.description %>
+</textarea>

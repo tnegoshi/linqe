@@ -1,22 +1,25 @@
-Your Username: <%= @user.username %>
-<br><br>
-Your Email: <%= @user.email %>
-<br><br>
-Your Name: <%= "#{@user.first_name} #{@user.last_name}" %>
-<br><br>
-Your Submitted Linqes: <% @user.linqes.each do |lq| %>
-<br>
-  <%= link_to lq.title, lq.url, target: "_blank" %>
-<% end %>
-<br><br>
-Your Comments: <% @user.linqes.each do |lq|  %>
-<br>
-<% lq.comments.each_with_index do |cm, i| %>
-<br>
-<%= "#{i+1} #{cm.content}"%>
-<% end %>
-<br><br>
-<% end %>
+<p> <%= link_to "Create new Linqe!", new_linqe_path, method: :get %> <p>
+
+<h2>User Information </h2>
+
+  Username: <%= @user.username %> <br>
+  Email: <%= @user.email %> <br>
+  Name: <%= "#{@user.first_name} #{@user.last_name}" %> <br>
 
 
+<div> <p>Submitted Linqes:</p>
+ <ul>
+  <% @user.linqes.each do |linqe| %>
+    <li><%= link_to linqe.title, linqe.url, target: "_blank" %>
+    <p>Comments:</p>
+     <ul><% linqe.comments.each.with_index(1) do |comment, i| %>
+          <br> <li><%= "#{i}. #{comment.content}"%></li>
+        <% end %>
+      </ul>
+    </li>
+    <% end %>
+  </ul>
 
+</div>
+
+<!-- find better way to organize style nested lists-->

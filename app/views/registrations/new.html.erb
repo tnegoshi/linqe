@@ -1,22 +1,67 @@
-<h1>Register</h1>
+<% unless @user.errors.messages.empty? %>
+  <ul>
+    <% @user.errors.messages.each do |message| %>
+     <li><%= message %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h2>Register</h2>
 
 <%= form_for @user, url: register_path, controller: 'registrations', action: 'create' do |f| %>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+
+  <div class="control-group">
+    <%= f.label :first_name, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :first_name %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :last_name, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :last_name %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :email, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :email %>
+    </div>
+  </div>
+
   <br>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <br>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <br>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
   <br>
 
-  <%= f.submit "Register" %>
+  <div class="control-group">
+    <%= f.label :username, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :username %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :password, class: "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
+  </div>
+
+   <div class="control-group">
+    <%= f.label :password_confirmation, class: "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Register", class: "btn btn-primary" %>
+    </div>
+  </div>
+
 <% end %>

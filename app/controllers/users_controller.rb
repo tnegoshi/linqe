@@ -1,18 +1,19 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :authorize_user, only: [:show, :edit, :update]
 
 
   #CRUD actions
 
-  # def index
-  #  @users = User.all
-  # end
+  def index
+   @users = User.all
+  end
 
   def show
   end
 
-  #custom show action to see a user's comments
-  def comments
+  def comments #custom show action to see a user's comments
+
   end
 
   def edit
@@ -24,10 +25,8 @@ class UsersController < ApplicationController
 
   private
 
-  #sanatize paramaters
-
-  def user_params
-    params.require(:user).permit(:username, :email,:password, :first_name, :last_name)
+  def user_params #sanatize paramaters
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :first_name, :last_name)
   end
 
   def set_user

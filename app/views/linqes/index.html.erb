@@ -1,2 +1,7 @@
-<h1>HOMEPAGE</h1>
-<p></p>
+<h1 align="center">linqes</h1>
+
+<ul>
+  <% @linqes.each.with_index(1) do |linqe, i| %>
+    <li><%= link_to "#{i}. #{linqe.title}", linqe_path(linqe) %></li>
+  <% end %>
+</ul>

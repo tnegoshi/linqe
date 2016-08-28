@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>Linqe - A forum for Philosophy</title>
-<!--     <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-    <%= analytics_init if Rails.env.production? %> -->
+    <%= analytics_init if Rails.env.production? %>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
   </head>
   <body>
@@ -19,13 +19,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
-        <% if signed_in? %>
-          <%= link_to "Sign Out", signout_path, method: 'delete', class: "navbar-brand" %>
-        <% else %>
-          <a class="navbar-brand" href="<%= signin_path %>"/>Sign In</a>
-          <a class="navbar-brand" href="<%= register_path %>"/>Register</a>
-        <% end %>
+
+          <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+          <% if signed_in? %>
+            <%= link_to "Sign Out", signout_path, method: :delete, class: "navbar-brand" %>
+          <% else %>
+            <a class="navbar-brand" href="<%= signin_path %>"/>Sign In</a>
+            <a class="navbar-brand" href="<%= register_path %>"/>Register</a>
+          <% end %>
 
         </div>
         <div class="navbar-collapse collapse">
