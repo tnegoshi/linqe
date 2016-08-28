@@ -20,12 +20,13 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+          <a class="navbar-brand" id="home" href="<%= root_url %>"/>Home</a>
           <% if signed_in? %>
+            <a class="navbar-brand" id="user" href="<%= user_path(current_user.id) %>"/><%= current_user.username %></a>
             <%= link_to "Sign Out", signout_path, method: :delete, class: "navbar-brand" %>
           <% else %>
-            <a class="navbar-brand" href="<%= signin_path %>"/>Sign In</a>
-            <a class="navbar-brand" href="<%= register_path %>"/>Register</a>
+            <a class="navbar-brand" id="signin" href="<%= signin_path %>"/>Sign In</a>
+            <a class="navbar-brand" id="register" href="<%= register_path %>"/>Register</a>
           <% end %>
 
         </div>

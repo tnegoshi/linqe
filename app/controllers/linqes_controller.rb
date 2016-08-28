@@ -1,6 +1,7 @@
 class LinqesController < ApplicationController
-  before_action :set_linqe, only: [:show]
-  before_action :authorize_user, only: [:new, :create, :edit, :update]
+  before_action :set_linqe, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:new, :create]
+  # beofre_action :authorize_submitter, only: [:edit, :update, :destroy]
 
   def index
     @linqes = Linqe.all
@@ -16,7 +17,7 @@ class LinqesController < ApplicationController
   def create
     linqe = current_user.linqes.build(linqe_params)
     if linqe.save
-      redirect_to linqe_path(linqe), notice: 'Linqe was successfully created.'
+      redirect_to linqe_path(linqe), notice: 'Linqe created.'
     else
       render :new
     end
@@ -25,10 +26,17 @@ class LinqesController < ApplicationController
   def edit
   end
 
-  def destroy
+  def update
   end
 
-  def update
+  def destroy
+    @linqe.destroy
+
+    if current_page?(root_path)
+      redirect_to root_path, notice: 'Linqe deleted.'
+    elsif current_page?(linqe_path(@linqe))
+      redirect_to user_path(@linqe.user), notice: 'Linqe deleted.'
+    end
   end
 
   private

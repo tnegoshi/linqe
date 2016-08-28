@@ -15,12 +15,13 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user)
    else
-     redirect_to signin_path
+     redirect_to signin_path, notice: 'Please try again.'
+
    end
  end
 
  def destroy
-   session[:user_id] = nil
+  reset_seession
    redirect_to '/'
  end
 
