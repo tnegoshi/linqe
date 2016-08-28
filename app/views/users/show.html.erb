@@ -1,16 +1,16 @@
-<p> <%= link_to "Create new Linqe!", new_linqe_path, method: :get %> <p>
+<div align="right"> <%= button_to "Submit New", new_linqe_path, method: :get, class:"btn btn-primary btn-sm"%></div>
+
 
 <h2>User Information </h2>
 
   Username: <%= @user.username %> <br>
-  Email: <%= @user.email %> <br>
   Name: <%= "#{@user.first_name} #{@user.last_name}" %> <br>
 
 
 <div> <p>Submitted Linqes:</p>
  <ul>
   <% @user.linqes.each do |linqe| %>
-    <li><%= link_to linqe.title, linqe.url, target: "_blank" %> | <%= link_to "Delete Linq", linqe_path(linqe), method: :delete %>
+    <li><%= link_to linqe.title, linqe.url, target: "_blank"%> | <%= link_to "Delete Linq", linqe_path(linqe), method: :delete %>
     <p>Comments:</p>
      <ul><% linqe.comments.each.with_index(1) do |comment, i| %>
           <br> <li><%= "#{i}. #{comment.content}"%></li>

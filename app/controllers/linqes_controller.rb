@@ -31,12 +31,7 @@ class LinqesController < ApplicationController
 
   def destroy
     @linqe.destroy
-
-    if current_page?(root_path)
-      redirect_to root_path, notice: 'Linqe deleted.'
-    elsif current_page?(linqe_path(@linqe))
-      redirect_to user_path(@linqe.user), notice: 'Linqe deleted.'
-    end
+    redirect_to :back, notice: 'Linqe deleted.'
   end
 
   private
@@ -48,6 +43,4 @@ class LinqesController < ApplicationController
   def set_linqe
     @linqe = Linqe.find(params[:id])
   end
-
-
 end

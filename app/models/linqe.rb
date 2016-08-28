@@ -6,6 +6,15 @@ class Linqe < ActiveRecord::Base
 
   #validations
   validates :title, presence: true, length: { maximum: 200 }
-  validates :url, presence: true, format: { with: /^(?:(ftp|http|https):\/\/)?(?:[\w-]+\.)+[a-z]{2,6}$/, multiline: true, message: "Please enter a valid URL."}
+  validates :url, format: { with: URI.regexp }, if: Proc.new { |a| a.url.present? }
   validates :id, uniqueness: true
+
+
+  before_validation(on: :create) do
+    self.linkerize
+  end
+
+  def linkerize
+    URI::HTTP.build(host: self.url).to_s
+  end
 end

@@ -16,12 +16,11 @@ class SessionsController < ApplicationController
       redirect_to user_path(user)
    else
      redirect_to signin_path, notice: 'Please try again.'
-
    end
  end
 
  def destroy
-  reset_seession
+   reset_session
    redirect_to '/'
  end
 

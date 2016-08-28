@@ -1,1 +1,10 @@
-_form.html.erb
+<% if @linqe.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(@linqe.errors.count, "error") %> prohibited this linqe from being saved:</h2>
+     <ul>
+     <% @linqe.errors.full_messages.each do |message| %>
+       <li><%= message %></li>q
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
