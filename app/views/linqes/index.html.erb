@@ -1,8 +1,61 @@
+<% if current_user != nil %>
 <div align="right"> <%= button_to "Submit New", new_linqe_path, method: :get, class:"btn btn-primary btn-sm"%></div>
+<% else %>
+<div align="right"> Sign in or Register to submit linqes and comment on linqes </div>
+<% end %>
+
+
+
+
+
 <h1 align="center">Linqes</h1>
 
 
+
+<table style="border-collapse: separate; border-spacing: 40px;"">
+  <tr>
+    <th> # </th>
+    <th> linqe </th>
+    <th> submitted by </th>
+    <th> </th>
+    <th> </th>
+  </tr>
 <% @linqes.each.with_index(1) do |linqe, i| %>
-    <h4><%= "#{i}." %> <%= link_to "#{linqe.title}", linqe.url, target: "_blank"  %> </h3>
-    <%= button_to "Delete Linq", linqe_path(linqe), method: :delete, class:"btn btn-secondary btn-sm"%>
+
+  <tr>
+  <td><%= "#{i}." %> </td>
+  <td><%= link_to "#{linqe.title}", linqe_path(linqe) %> </td>
+  <td><%= link_to "#{linqe.submitter.username}", user_path(linqe.submitter) %> </td>
+  <td>
+  <% if current_user != nil && current_user.id == linqe.submitter.id%>
+   <%= button_to "Edit Linqe", edit_linqe_path(linqe), method: :get, class:"btn btn-secondary btn-sm"%>
+   <% end %>
+   <td>
+ <td>
+  <% if current_user != nil && current_user.id == linqe.submitter.id%>
+   <%= button_to "Delete Linqe", linqe_path(linqe), method: :delete, class:"btn btn-secondary btn-sm"%>
+   <% end %>
+   <td>
+  </tr>
+
   <% end %>
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
