@@ -31,7 +31,6 @@ class LinqesController < ApplicationController
 
   def destroy
     @linqe.destroy
-
     if current_page?(root_path)
       redirect_to root_path, notice: 'Linqe deleted.'
     elsif current_page?(linqe_path(@linqe))
