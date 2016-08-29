@@ -1,6 +1,6 @@
 <h1>Edit linqe:</h1>
 
-<%= form_for @linqe, html: { class: "form-horizontal" }, method: :patch do |f| %>
+<%= form_for @linqe, method: :patch, html: { class: "form-horizontal" } do |f| %>
 
   <div class="control-group">
     <%= f.label :title, class: "control-label" %>
@@ -19,10 +19,9 @@
   <div class="control-group">
     <%= f.label :description, class: "control-label" %>
     <div class="controls">
-      <%= f.text_field :description %>
+    <%= f.text_area :description, size:"40x5" %>
     </div>
   </div>
-
   <br>
 
   <div class="control-group">

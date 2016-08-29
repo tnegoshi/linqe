@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     before_action :authorize_user, only: [:new, :create]
 
     def index
-      @comments = Comment.all.reverse
+      @comments = Comment.all
     end
 
     def new
@@ -16,11 +16,10 @@ class CommentsController < ApplicationController
 
     def create
       comment = current_user.comments.build(comment_params)
-
       if comment.save
-        redirect_to :back 'Comment created.'
+        redirect_to :back, notice: 'Comment created.'
       else
-        redirect_to :back 'Please enter a comment and try again.'
+        redirect_to :back, notice: 'Please enter a comment and try again.'
       end
     end
 
@@ -39,12 +38,10 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-      params.require(:linqe).permit(:content, :commenter_id, :linqe_id)
-    ends
+      params.require(:comment).permit(:content, :submitter_id, :commenter_id, :linqe_id)
+    end
 
     def set_comment
       @comment = Comment.find(params[:id])
     end
-
-
 end

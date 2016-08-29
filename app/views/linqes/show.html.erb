@@ -5,5 +5,6 @@
   <%= @linqe.description %>
 </textarea>
 
+<% if current_user == @linqe.submitter %>
 <div> <%= button_to "Edit this Linqe", edit_linqe_path, method: :get, class:"btn btn-secondary btn-sm"%></div>
-
+<% end %>

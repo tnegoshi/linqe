@@ -27,6 +27,7 @@ class LinqesController < ApplicationController
 
   def update
     @linqe.update(linqe_params)
+    redirect_to linqe_path(@linqe)
   end
 
   def destroy

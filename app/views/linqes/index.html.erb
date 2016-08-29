@@ -31,7 +31,7 @@
    <td>
  <td>
   <% if current_user != nil && current_user.id == linqe.submitter.id%>
-   <%= button_to "Delete Linqe", linqe_path(linqe), method: :delete, class:"btn btn-secondary btn-sm"%>
+   <%= button_to "Delete Linqe", linqe_path(linqe), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-secondary btn-sm"%>
    <% end %>
 
    <% end %>

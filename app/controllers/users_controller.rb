@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  before_action :authorize_user, only: [:show, :edit, :update]
+  before_action :authorize_user, only: [ :edit, :update]
 
 
   #CRUD actions
@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   end
 
   def comments #custom show action to see a user's comments
-
   end
 
   def edit
@@ -21,7 +20,6 @@ class UsersController < ApplicationController
 
   def update
   end
-
 
   private
 

@@ -10,11 +10,15 @@ class Linqe < ActiveRecord::Base
   validates :id, uniqueness: true
 
 
-  # before_validation(on: :create) do
-  #   self.linkerize
-  # end
+  before_validation(on: :create) do
+    self.linkerize
+  end
 
-  # def linkerize
-  #   URI::HTTP.build(host: self.url).to_s
-  # end
+  def linkerize
+    URI::HTTP.build(host: self.url).to_s
+  end
+
+  def format_url
+    self.website = "http://#{self.website}" unless self.website[/^https?/]
+  end
 end
