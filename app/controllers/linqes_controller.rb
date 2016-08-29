@@ -4,7 +4,7 @@ class LinqesController < ApplicationController
   # beofre_action :authorize_submitter, only: [:edit, :update, :destroy]
 
   def index
-    @linqes = Linqe.all
+    @linqes = Linqe.all.reverse
   end
 
   def new
@@ -27,6 +27,7 @@ class LinqesController < ApplicationController
   end
 
   def update
+    @linqe.update(linqe_params)
   end
 
   def destroy

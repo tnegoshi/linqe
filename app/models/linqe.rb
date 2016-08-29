@@ -6,15 +6,15 @@ class Linqe < ActiveRecord::Base
 
   #validations
   validates :title, presence: true, length: { maximum: 200 }
-  validates :url, format: { with: URI.regexp }, if: Proc.new { |a| a.url.present? }
+  # validates :url, format: { with: URI.regexp }, if: Proc.new { |a| a.url.present? }
   validates :id, uniqueness: true
 
 
-  before_validation(on: :create) do
-    self.linkerize
-  end
+  # before_validation(on: :create) do
+  #   self.linkerize
+  # end
 
-  def linkerize
-    URI::HTTP.build(host: self.url).to_s
-  end
+  # def linkerize
+  #   URI::HTTP.build(host: self.url).to_s
+  # end
 end
