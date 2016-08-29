@@ -19,31 +19,28 @@
    <td><div><%= link_to linqe.title, linqe_path(linqe) %></div></td>
 
      <% if current_user && current_user.id == @user.id %>
-
-   <td><%= button_to "Edit Linqe", edit_linqe_path(linqe), method: :get, class:"btn btn-secondary btn-sm"%></td>
-   <td><%= button_to "Delete Linqe", linqe_path(linqe), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-secondary btn-sm"%></td>
-    <td><%= button_to "View Comments", linqe_path(linqe), method: :get, class:"btn btn-secondary btn-sm"%></td>
+     <td><%= button_to "Edit Linqe", edit_linqe_path(linqe), method: :get, class:"btn btn-secondary btn-sm"%></td>
+     <td><%= button_to "Delete Linqe", linqe_path(linqe), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-secondary btn-sm"%></td>
+     <td><%= button_to "View Comments", linqe_path(linqe), method: :get, class:"btn btn-secondary btn-sm"%></td>
     <% end %>
     <% end %>
 
   </tr>
   </table>
 
-</div>
 
 
 <div id="comment-history"> <h3>Comment History</h3>
   <table class="table table-hover" id="user_show_linqes">
-  <tr>
-     <% @user.comments.each.with_index(1) do |comment, i| %>
-     <td>
-         <div id="single_comment"> <%= "#{i}. #{comment.content}"%></div>
-    </td>
-
-
-  </tr>
-   <% end %>
+    <%= form_tag destroy_multiple_comments_path, method: :delete %>
+    <tr>
+       <% @user.comments.each.with_index(1) do |comment, i| %>
+        <td> <%= check_box_tag "comments[]", comment.id %> <%= " #{i}. #{comment.content}"%></td>
+      <% end %>
+    </tr>
   </table>
+    <div class="pull-right"><%= submit_tag "Delete selected", data: {confirm: 'Are you sure?'}, class:"btn btn-secondary btn"%></th>
+
 
 </div>
 

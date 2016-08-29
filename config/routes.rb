@@ -19,7 +19,14 @@ Rails.application.routes.draw do
   ##signout
     delete '/', to: 'sessions#destroy', as: 'signout'
 
-  resources :comments
+  resources :comments, except: :destroy
+
+  resources :comments do
+     collection do
+       delete 'destroy_multiple'
+     end
+  end
+
   resources :linqes
 end
 

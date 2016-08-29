@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update ]
   before_action :authorize_user, only: [:new, :create]
   def index
     @comments = Comment.all
@@ -31,9 +31,19 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(params[:comments][:id])
     @comment.destroy
+
     redirect_to :back, notice: 'Comment deleted.'
   end
+
+  def destroy_multiple
+    params[:comments].each do |comment|
+      Comment.destroy(comment)
+    end
+    redirect_to :back, notice: 'Comments deleted.'
+  end
+
 
   private
 
