@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   root 'linqes#index'
 
   #user
-  get '/users/edit', to: 'users#edit'
+  get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   get '/users/:id', to: 'users#show', as: 'user'
-  ### get 'users/new', to: 'users#new' -- admin flow maybe
+  patch '/users/:id', to: 'users#update'
+  # post '/users', to: 'registrations#create'
+
+
 
   #registration
   get '/register', to: 'registrations#new', as: 'register'

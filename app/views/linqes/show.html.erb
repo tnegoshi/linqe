@@ -9,11 +9,9 @@
 <% if current_user == @linqe.submitter %>
 <div class="pull-left"> <%= button_to "Edit Linqe", edit_linqe_path, method: :get, class:"btn btn-secondary btn-sm"%></div>
 <div class="pull-left"> <%= button_to "Delete Linqe", edit_linqe_path, method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-secondary btn-sm"%></div>
+<br>
+<br>
 <% end %>
-<br>
-<br>
-<br>
-
 <h4><i><%= @linqe.description %></i></h4>
 
 

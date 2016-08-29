@@ -2,17 +2,21 @@
 
 <h3>User Information </h3>
 
-<% if @user.avatar %>
+<% if @user.avatar.present? %>
 
   <div id="user avatar">
     <%= image_tag @user.avatar.url(:thumb) %>
   </div>
-
 <% end %>
 
 <br>
 
 <p> Username: <%= @user.username %></p><p>Name: <%= "#{@user.first_name} #{@user.last_name}" %></p>
+
+
+<% if current_user && current_user.id == @user.id %>
+<%= button_to "Edit User", edit_user_path(@user), method: :get, class:"btn btn-secondary btn-sm"%>
+<% end %>
 
 
 

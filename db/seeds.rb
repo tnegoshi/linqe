@@ -10,6 +10,7 @@ y = User.new(username: "breaking_boundaries", password: "123456", password_confi
 u = User.new(username: "utrecht_forever", password: "123456", password_confirmation: "123456", first_name: "Sandra", last_name:"Mali")
 i = User.new(username: "10010101011", password: "123456", password_confirmation: "123456", first_name: "binary", last_name:"binary")
 o = User.new(username: "adorno",password: "123456", password_confirmation: "123456", first_name: "Theodor", last_name:"Adorno")
+p = User.new(username: "rango1",password: "123456", password_confirmation: "123456", first_name: "Rango", last_name:"The Chameleon")
 
 hello.save
 hi.save
@@ -23,6 +24,7 @@ y.save
 u.save
 i.save
 o.save
+p.save
 
 Linqe.create(
   title: "Alt-Right Explained",
@@ -108,8 +110,28 @@ Linqe.create(
   submitter_id: 12,
   description: "Why pleasures should never be guilty, from valley of the dolls to bonkbusters.")
 
+Linqe.create(
+  title: "Searle on consciousness",
+  url: "https://www.ted.com/talks/john_searle_our_shared_condition_consciousness?language=en",
+  slug: "searle-on-consciousness",
+  submitter_id: 13,
+  description: "Philosopher John Searle lays out the case for studying human consciousness — and systematically shoots down some of the common objections to taking it seriously. As we learn more about the brain processes that cause awareness, accepting that consciousness is a biological phenomenon is an important first step. And no, he says, consciousness is not a massive computer simulation.")
 
 
+
+
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 1, commenter_id: 2)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 12, commenter_id: 1)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 7, commenter_id: 8)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 5, commenter_id: 1)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 5, commenter_id: 2)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 8, commenter_id: 9)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 6, commenter_id: 1)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 6, commenter_id: 1)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 8, commenter_id: 2)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 7, commenter_id: 4)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 8, commenter_id: 1)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis fermentum nunc, at rhoncus arcu elementum eget. Phasellus porta nisl posuere, ultrices mauris quis, tincidunt nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.", linqe_id: 8, commenter_id: 7)
 Comment.create(content: "cool story bro", linqe_id: 1, commenter_id: 2)
 Comment.create(content: "interesting", linqe_id: 2, commenter_id: 1)
 Comment.create(content: "tru", linqe_id: 3, commenter_id: 4)
