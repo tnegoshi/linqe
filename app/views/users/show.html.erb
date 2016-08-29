@@ -34,7 +34,7 @@
   <table class="table table-hover" id="user_show_linqes">
     <%= form_tag destroy_multiple_comments_path, method: :delete %>
     <tr>
-       <% @user.comments.each.with_index(1) do |comment, i| %>
+     <% Comment.where(:commenter_id => @user.id).each.with_index(1) do |comment, i| %>
         <td> <%= check_box_tag "comments[]", comment.id %> <%= " #{i}. #{comment.content}"%></td>
       <% end %>
     </tr>
