@@ -32,13 +32,15 @@ class LinqesController < ApplicationController
 
   def destroy
     @linqe.destroy
-    redirect_to :back, notice: 'Linqe deleted.'
+    redirect_url = (request.referer.include?("linqes/#{@linqe.id}") ? root_path : :back)
+
+    redirect_to redirect_url, notice: 'Linqe deleted.'
   end
 
   private
 
   def linqe_params
-    params.require(:linqe).permit(:url, :title, :description, :submitter_id)
+    params.require(:linqe).permit(:url, :title, :slug, :description, :submitter_id)
   end
 
   def set_linqe
