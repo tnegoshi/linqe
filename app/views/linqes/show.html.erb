@@ -1,9 +1,8 @@
 <br>
 <br>
 
-<!--
 <div class="jumbotron">
-</div> -->
+
 
 <h2><%= link_to @linqe.title, @linqe.url, target: "_blank" %></h2>
 <% if current_user == @linqe.submitter %>
@@ -13,11 +12,8 @@
 <br>
 <% end %>
 <h4><i><%= @linqe.description %></i></h4>
+</div>
 
-
-<br>
-<br>
-<br>
 
 <h4>Comments</h4>
 <% if @linqe.comments.empty? %>
