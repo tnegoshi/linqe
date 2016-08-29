@@ -50,7 +50,7 @@
     </tr>
   </table>
 
-    <% if current_user && current_user.id == @user.id %>
+    <% if current_user && current_user.id == @user.id && !Comment.where(:commenter_id => @user.id).empty? %>
         <div class="pull-right"><%= submit_tag "Delete selected", data: {confirm: 'Are you sure?'}, class:"btn btn-secondary btn"%></th>
     <% end %>
 </div>
