@@ -24,6 +24,15 @@ body {
   padding-bottom: 30px;
 }
 
+
+div#comment-history {
+  display: block;
+  float: left;
+}
+
+
+
+
 input#linqe_title {
   width: 300px;
 }
@@ -47,14 +56,6 @@ input#linqe_url {
   }
 }
 
-
-/*ul.navbar-nav > li.btn,
-ul.navbar-nav > li.btn:hover, {
-  color: #fff;
-  background-color: #FFAB83;
-  border-radius: 0 0 4% 4%;
-  line-height: 10px;
-}*/
 
 .navbar-inverse .navbar-nav > li > a {
   font-weight: bold;
