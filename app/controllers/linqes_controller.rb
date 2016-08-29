@@ -1,7 +1,6 @@
 class LinqesController < ApplicationController
   before_action :set_linqe, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user, only: [:new, :create]
-  # beofre_action :authorize_submitter, only: [:edit, :update, :destroy]
 
   def index
     @linqes = Linqe.all.reverse
