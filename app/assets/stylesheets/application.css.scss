@@ -25,11 +25,12 @@ body {
 }
 
 
-div#comment-history {
+div#comment-history,
+div#comment-history td {
+  width: 100%;
   display: block;
   float: left;
 }
-
 
 
 
