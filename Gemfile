@@ -46,6 +46,7 @@ group :development do
   gem "rails-erd"
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'paperclip'
 end
 
 gem "bootstrap-sass", "~> 3.1.1"
