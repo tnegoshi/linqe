@@ -39,20 +39,20 @@
     <%= form_tag destroy_multiple_comments_path, method: :delete %>
     <tr>
      <% Comment.where(:commenter_id => @user.id).each.with_index(1) do |comment, i| %>
-        <% if signed_in? %>
+
+        <% if current_user && current_user.id == @user.id %>
         <td> <%= check_box_tag "comments[]", comment.id %> <%= " #{i}. #{comment.content}"%></td>
         <% else %>
+
         <td><%= " #{i}. #{comment.content}"%></td>
       <% end %>
       <% end %>
     </tr>
   </table>
 
-    <% if signed_in? %>
+    <% if current_user && current_user.id == @user.id %>
         <div class="pull-right"><%= submit_tag "Delete selected", data: {confirm: 'Are you sure?'}, class:"btn btn-secondary btn"%></th>
     <% end %>
-
-
 </div>
 
 
