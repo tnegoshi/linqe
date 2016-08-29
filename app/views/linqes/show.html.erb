@@ -1,35 +1,33 @@
 <h2><%= link_to @linqe.title, @linqe.url, target: "_blank" %></h2>
-<br>
-
 <% if current_user == @linqe.submitter %>
-<div> <%= button_to "Edit this Linqe", edit_linqe_path, method: :get, class:"btn btn-secondary btn-sm"%></div>
-<div> <%= button_to "Delete this Linqe", edit_linqe_path, method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-secondary btn-sm"%></div>
+<div class="pull-left"> <%= button_to "Edit Linqe", edit_linqe_path, method: :get, class:"btn btn-secondary btn-sm"%></div>
+<div class="pull-left"> <%= button_to "Delete Linqe", edit_linqe_path, method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-secondary btn-sm"%></div>
 <% end %>
 
-<br> <br>
-<%= @linqe.description %>
 
-<br> <br>
+<br>
+<br>
+<h5><%= @linqe.description %></h5>
 
-<% @linqe.comments.each_with_index do |comment, i| %>
+<h3>Comments</h3>
 <br>
-<%= "#{i+1}. #{comment.created_at} #{comment.commenter.username} says: #{comment.content}" %>
-<br>
+
+<% if @linqe.comments.empty? %>
+  <%= render 'new_comment' %>
+<% else %>
+  <% @linqe.comments.each_with_index do |comment, i| %>
+   <%= "#{comment.created_at.to_formatted_s(:long)}"%>
+     <p>
+        - <%="#{comment.content}" %>
+    </p>
+    by <%= link_to "#{comment.commenter.username}", user_path(comment.commenter) %>
+    <br>
+    <br>
+  <% end %>
+
+  <%= render 'new_comment' %>
 <% end %>
 
-<br>
-<br>
 
-Add Comment:
 
-<br>
-<br>
-
-<%= form_for Comment.new do |f| %>
-<%= f.text_field :content %>
-<%= f.hidden_field :commenter_id, :value => current_user.id %>
-<%= f.hidden_field :linqe_id, :value => @linqe.id %>
-
-<%= f.submit %>
-<% end %>
 

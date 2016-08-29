@@ -1,25 +1,51 @@
-<div align="right"> <%= button_to "Submit New", new_linqe_path, method: :get, class:"btn btn-primary btn-sm"%></div>
+<div class="pull-left">
 
+<h3>User Information </h3>
 
-<h2>User Information </h2>
-
-  Username: <%= @user.username %> <br>
-  Name: <%= "#{@user.first_name} #{@user.last_name}" %> <br>
-
-
-<div> <p>Submitted Linqes:</p>
- <ul>
-  <% @user.linqes.each do |linqe| %>
-    <li><%= link_to linqe.title, linqe.url, target: "_blank"%> | <%= link_to "Delete Linq", linqe_path(linqe), method: :delete %>
-    <p>Comments:</p>
-     <ul><% linqe.comments.each.with_index(1) do |comment, i| %>
-          <br> <li><%= "#{i}. #{comment.content}"%></li>
-        <% end %>
-      </ul>
-    </li>
-    <% end %>
-  </ul>
+<p> Username: <%= @user.username %></p><p>Name: <%= "#{@user.first_name} #{@user.last_name}" %></p>
 
 </div>
+
+
+
+
+<div class="pull-right"> <h3>Submitted Linqes</h3>
+  <% @user.linqes.each do |linqe| %>
+  <table class="table table-hover" id="user_show_linqes">
+
+  <tr>
+    <td><div id="link_title"><%= link_to linqe.title, linqe_path(linqe) %></div></td>
+    <td><%= button_to "Edit Linqe", edit_linqe_path(linqe), method: :get, class:"btn btn-secondary btn-sm"%></td>
+    <td><%= button_to "Delete Linqe", linqe_path(linqe), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-secondary btn-sm"%></td>
+    <td>
+      <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#comments_list">View Comments</button>
+
+      <% linqe.comments.each.with_index(1) do |comment, i| %>
+          <div id="comments_list" class="collapse">
+          <div id="single_comment"> <%= "#{i}. #{comment.content}"%></div>
+            <% end %>
+         </div>
+       <% end %>
+     </td>
+
+   </tr>
+   </table>
+</div>
+
+
+<div class="pull-left"> <h3>Comment History</h3>
+   <table class="table table-hover" id="user_show_linqes">
+   <tr>
+      <% @user.comments.each.with_index(1) do |comment, i| %>
+      <td>
+          <div id="single_comment"> <%= "#{i}. #{comment.content}"%></div>
+         </div>
+       <% end %>
+     </td>
+   </tr>
+   </table>
+
+</div>
+
 
 <!-- find better way to organize style nested lists-->

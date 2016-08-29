@@ -38,7 +38,7 @@ class LinqesController < ApplicationController
   private
 
   def linqe_params
-    params.require(:linqe).permit(:url, :title, :slug, :submitter_id)
+    params.require(:linqe).permit(:url, :title, :description, :submitter_id)
   end
 
   def set_linqe

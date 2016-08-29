@@ -9,6 +9,8 @@
    </div>
  <% end %>
 
+<div id="register_form" class="form-horizontal">
+
 <h2>Register</h2>
 
 <%= form_for @user, url: register_path, controller: 'registrations', action: 'create' do |f| %>
@@ -62,3 +64,5 @@
   </div>
 
 <% end %>
+
+</div>

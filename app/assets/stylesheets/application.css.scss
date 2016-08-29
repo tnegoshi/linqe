@@ -24,3 +24,50 @@ body {
   padding-bottom: 30px;
 }
 
+input#linqe_title {
+  width: 300px;
+}
+
+input#linqe_url {
+  width: 300px;
+}
+
+.btn,
+.btn:focus,
+.btn:active,
+.btn.active, {
+  color: #999;
+  background-color: #FFD483;
+  border-color: #FFD483;
+
+  &:hover {
+    color: #282828;
+    background-color: #FFAB83;
+    border-color: #FFAB83;
+  }
+}
+
+
+/*ul.navbar-nav > li.btn,
+ul.navbar-nav > li.btn:hover, {
+  color: #fff;
+  background-color: #FFAB83;
+  border-radius: 0 0 4% 4%;
+  line-height: 10px;
+}*/
+
+.navbar-inverse .navbar-nav > li > a {
+  font-weight: bold;
+  color: #222 ;
+  background-color: #FFD483;
+  line-height: 12px;
+  border-radius: 0 0 4% 4%;
+
+  &:hover {
+    font-weight: bold;
+    color: #fff;
+    background-color: #FFAB83;
+  }
+}
+
+

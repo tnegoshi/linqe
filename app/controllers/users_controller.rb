@@ -12,9 +12,6 @@ class UsersController < ApplicationController
   def show
   end
 
-  def comments #custom show action to see a user's comments
-  end
-
   def edit
   end
 

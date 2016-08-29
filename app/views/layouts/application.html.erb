@@ -27,14 +27,16 @@
           <% else %>
             <a class="navbar-brand" id="signin" href="<%= signin_path %>"/>Sign In</a>
             <a class="navbar-brand" id="register" href="<%= register_path %>"/>Register</a>
-          <% end %>
 
+          <% end %>
         </div>
-        <div class="navbar-collapse collapse">
+         <% if signed_in? %>
+        <div class="navbar-right">
           <ul class="nav navbar-nav">
-           <!--  nav here -->
+             <li> <%= link_to "Submit New", new_linqe_path, method: :get %></li>
           </ul>
         </div><!--/.nav-collapse -->
+        <% end %>
       </div>
     </div>
 

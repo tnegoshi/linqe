@@ -1,8 +1,6 @@
-<h3 align="center ">Sign In</h3>
-
+<div id="signin_form" class="form-horizontal">
+<h3>Sign In</h3>
 <br>
-<div align="center">
-
 <%= form_for @user, url: signin_path do |f| %>
 
   <div class="control-group">
@@ -23,7 +21,7 @@
 
   <div class="control-group">
     <div class="controls">
-      <%= f.submit "Sign In", class: "btn btn-primary" %>
+      <%= f.submit "Sign In", class: "btn btn-primary btn-sm" %>
     </div>
   </div>
 
